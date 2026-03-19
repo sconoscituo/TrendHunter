@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./trendhunter.db
+      - DEBUG=False
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
