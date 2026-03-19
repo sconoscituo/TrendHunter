@@ -37,6 +37,10 @@ class Settings(BaseSettings):
     # 주간 리포트 생성 요일 (0=월요일)
     report_day_of_week: str = "mon"
 
+    # 포트원(PortOne) 결제 연동
+    portone_api_key: str = ""
+    portone_api_secret: str = ""
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

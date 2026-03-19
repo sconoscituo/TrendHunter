@@ -10,7 +10,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from app.config import get_settings
 from app.database import init_db
-from app.routers import trends, users
+from app.routers import trends, users, keywords, payments
 
 settings = get_settings()
 
@@ -82,6 +82,8 @@ app.add_middleware(
 # 라우터 등록
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(trends.router, prefix="/api/trends", tags=["trends"])
+app.include_router(keywords.router)
+app.include_router(payments.router)
 
 
 @app.get("/", tags=["health"])
